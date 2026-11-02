@@ -1,0 +1,12 @@
+# release artifacts
+*.tgz
+dsh-voice-polish-*.tgz
+
+# dev scripts
+patch_*.py
+gen_*.py
+make_*.py
+
+# npm
+node_modules/
+npm-debug.log

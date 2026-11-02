@@ -1,0 +1,76 @@
+{
+  "name": "dsh-voice-polish",
+  "version": "0.2.2",
+  "description": "DSH 输入框 AI 整理 / 翻译 / 润色按钮：Win+H 语音后一键把草稿清理成通顺文本、翻译到多语种、或扩展为完整 AI 提示词。自带热词 / Snippets / 预设 / 测试 / 历史 / 诊断面板。",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "docs",
+    "cordis.patch.yml",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/dsh-host-webserver": ">=0.1.0-rc.6 || >=0.1.1-rc.1 || >=0.1.2-alpha.0 || >=0.1.3-alpha.0 || >=0.1.5-alpha.0 || >=0.1.6-alpha.0 || >=0.1.7-alpha.0 || >=0.2.0-rc.0",
+    "@deepseek-ai/dsh-llm": ">=0.1.0-rc.6 || >=0.1.1-rc.1 || >=0.1.2-alpha.0 || >=0.1.3-alpha.0 || >=0.1.5-alpha.0 || >=0.1.6-alpha.0 || >=0.1.7-alpha.0 || >=0.2.0-rc.0",
+    "@deepseek-ai/dsh-web-app": ">=0.1.0-rc.6 || >=0.1.1-rc.1 || >=0.1.2-alpha.0 || >=0.1.3-alpha.0 || >=0.1.5-alpha.0 || >=0.1.6-alpha.0 || >=0.1.7-alpha.0 || >=0.2.0-rc.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-host-webserver": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-web-app": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "test": "node tests/run-tests.cjs && node --test tests/host-regressions.test.cjs tests/local-asr-regressions.test.cjs tests/client-regressions.test.cjs",
+    "lint": "node scripts/lint.cjs",
+    "validate": "npm test && npm run lint && npm run security",
+    "security": "node scripts/security-check.cjs"
+  },
+  "dsh": {
+    "manifestVersion": "1",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-modules",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "keywords": [
+    "ai-polish",
+    "claude",
+    "dsh",
+    "dsh-plugin",
+    "kiro",
+    "text-cleanup",
+    "translate",
+    "voice-input",
+    "win-h",
+    "翻译"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
