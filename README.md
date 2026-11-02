@@ -18,7 +18,11 @@ Fork 自 [dsh-voice-scribe](https://www.npmjs.com/package/dsh-voice-scribe)，�
 # 如装过 voice-scribe 要先卸（它会抢 /voice-input 路由）
 dsh plugin --profile desktop remove dsh-voice-scribe
 
-dsh plugin --profile desktop add file:<路径>/dsh-voice-polish-0.2.0.tgz
+# 方式 1：从 GitHub Release 直装（推荐）
+dsh plugin --profile desktop add https://github.com/Lin-Phoeo/dsh-voice-polish/releases/download/v0.2.2/dsh-voice-polish-0.2.2.tgz
+
+# 方式 2：npm registry（npm publish 后可用）
+dsh plugin --profile desktop add dsh-voice-polish
 ```
 
 重启 DSH 或插件市场点刷新。
